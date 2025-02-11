@@ -8,6 +8,7 @@
 <body>
     <main>
         <h1>Sum of Numbers</h1>
+        <button onclick="calculateSum()">Start Summing</button>
         <script>
             function calculateSum() {
                 let continueSum = 'y';
@@ -17,12 +18,13 @@
 
                     do {
                         num = prompt("Enter any top number to sum\nfrom 1 through 100");
+
                         if (num === null) {
                             return;
                         }
 
                         num = parseInt(num);
-                        if (isNaN(num) || num < 1 || num > 100){
+                        if (isNaN(num) || num < 1 || num > 100) {
                             alert("Please enter a number between 1 and 100");
                         }
                     } while (isNaN(num) || num < 1 || num > 100);
@@ -32,7 +34,7 @@
                         sum += i;
                     }
 
-                    alert("The sum of the numbers from 1 through" + num + " is " + sum);
+                    alert("The sum of the numbers from 1 through " + num + " is " + sum);
 
                     continueSum = prompt("Do another sum?").toLowerCase();
                 } while (continueSum === 'y');
