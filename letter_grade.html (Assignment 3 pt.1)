@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+    <title>Grade Converter</title>
+</head>
+<body>
+    <main>
+        <h1>Show letter grade</h1>
+        <div class="grades">
+            <h3>Letter Grades:</h3>
+            <ul id="gradesList"></ul>
+        </div>
+        <script>
+            let gradesList = document.getElementById('gradesList');
+            function getGradeLetter(grade) {
+                if (grade >= 88 && grade <= 100) {
+                    return 'A';
+                } else if (grade >= 80 && grade <= 87) {
+                    return 'B';
+                } else if (grade >= 68 && grade <= 79) {
+                    return 'C'
+                } else if (grade >= 60 && grade <= 67) {
+                    return 'D';
+                } else {
+                    return 'F';
+                }
+            }
+
+            let grade;
+            while (true) {
+                grade = prompt('Enter a grade from 0 through 100\nOr enter 999 to end entries');
+                grade = Number(grade);
+
+                if (grade === 999) {
+                    break;
+                }
+
+                if (grade >= 0 && grade <= 100) {
+                    let letter = getGradeLetter(grade);
+                    let li = document.createElement('li');
+                    li.textContent = 'Grade ' + grade + ' = ' + letter;
+                    gradesList.appendChild(li);
+                } else {
+                    alert()
+                }
+            }
+        </script>
+    </main>
+</body>
+</html>
