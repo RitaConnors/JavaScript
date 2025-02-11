@@ -1,0 +1,35 @@
+"use strict";
+
+const region1 = [1540, 1130, 1580, 1105];
+const region2 = [2010, 1168, 2305, 4102];
+const region3 = [2450, 1847, 2710, 2391];
+const region4 = [1845, 1491, 1284, 1575];
+const region5 = [2120, 1767, 1599, 3888];
+
+function sumQuarterlySales(region) {
+    return region.reduce((acc, curr) => acc + curr, 0);
+}
+
+function calculateTotalSales() {
+    return sumQuarterlySales(region1) + sumQuarterlySales(region2) + sumQuarterlySales(region3) + sumQuarterlySales(region4) + sumQuarterlySales(region5);
+}
+
+function displaySalesData() {
+    document.write("<h2>Sales by Quarter</h2>");
+    document.write("Q1: $" + (region1[0] + region2[0] + region3[0] + region4[0] + region5[0]) + "<br>");
+    document.write("Q2: $" + (region1[1] + region2[1] + region3[1] + region4[1] + region5[1]) + "<br>");
+    document.write("Q3: $" + (region1[2] + region2[2] + region3[2] + region4[2] + region5[2]) + "<br>");
+    document.write("Q4: $" + (region1[3] + region2[3] + region3[3] + region4[3] + region5[3]) + "<br><br>");
+
+    document.write("<h2>Sales by Region</h2>");
+    document.write("Region 1: $" + sumQuarterlySales(region1) + "<br>");
+    document.write("Region 2: $" + sumQuarterlySales(region2) + "<br>");
+    document.write("Region 3: $" + sumQuarterlySales(region3) + "<br>");
+    document.write("Region 4: $" + sumQuarterlySales(region4) + "<br>");
+    document.write("Region 5: $" + sumQuarterlySales(region5) + "<br><br>");
+
+    document.write("<h2>Total Sales</h2>");
+    document.write("$" + calculateTotalSales());
+}
+
+displaySalesData();
