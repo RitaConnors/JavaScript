@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+    <title>Sum of Numbers</title>
+</head>
+<body>
+    <main>
+        <h1>Sum of Numbers</h1>
+        <script>
+            function calculateSum() {
+                let continueSum = 'y';
+
+                do {
+                    let num = -1;
+
+                    do {
+                        num = prompt("Enter any top number to sum\nfrom 1 through 100");
+                        if (num === null) {
+                            return;
+                        }
+
+                        num = parseInt(num);
+                        if (isNaN(num) || num < 1 || num > 100){
+                            alert("Please enter a number between 1 and 100");
+                        }
+                    } while (isNaN(num) || num < 1 || num > 100);
+
+                    let sum = 0;
+                    for (let i = 1; i <= num; i++) {
+                        sum += i;
+                    }
+
+                    alert("The sum of the numbers from 1 through" + num + " is " + sum);
+
+                    continueSum = prompt("Do another sum?").toLowerCase();
+                } while (continueSum === 'y');
+            }
+        </script>
+    </main>
+</body>
+</html>
