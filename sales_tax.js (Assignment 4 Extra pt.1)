@@ -1,0 +1,62 @@
+"use strict";
+
+const $ = selector => document.querySelector(selector);
+
+document.addEventListener("DOMContentLoaded", () => {
+    $("#subtotal").focus();
+    $("#calculate").addEventListener("click", processEntries);
+    $("#clear").addEventListener("click", clearEntries);
+    $("#subtotal").addEventListener("click", clearSubtotal);
+    $("#tax_rate").addEventListener("click", clearTaxRate);
+});
+
+function moveToSubtotalField() {
+    document.getElementById('subtotal').focus();
+}
+
+window.onload = function() {
+    moveToSubtotalField();
+}
+
+function processEntries() {
+    moveToSubtotalField();
+
+    let subtotal = parseFloat(document.getElementById('subtotal').value);
+    let tax_rate = parseFloat(document.getElementById('tax_rate').value);
+
+    if (isNaN(subtotal) || subtotal <= 0 || subtotal >= 10000) {
+        alert("Subtotal must be > 0 and < 10000");
+        return;
+    }
+
+    if (isNaN(tax_rate) || tax_rate <= 0 || tax_rate >= 12) {
+        alert("Tax Rate must be >0 and < 12");
+        return;
+    }
+
+    let sales_tax = subtotal * (tax_rate / 100);
+    let total = subtotal + sales_tax;
+
+    document.getElementById('sales_tax').value = sales_tax.toFixed(2);
+    document.getElementById('total').value = total.toFixed(2);
+}
+
+function clearFields() {
+    document.getElementById('subtotal').value = '';
+    document.getElementById('tax_rate').value = '';
+    document.getElementById('sales_tax').value = '';
+    document.getElementById('total').value = '';
+
+    moveToSubtotalField();
+}
+
+function clearSubtotal() {
+    document.getElementById('subtotal').value = '';
+}
+
+function clearTaxRate() {
+    document.getElementById('tax_rate').value = '';
+}
+
+document.getElementById('price').addEventListener('click', clearSubtotal);
+document.getElementById('tax_rate').addEventListener('click', clearTaxRate);
