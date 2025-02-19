@@ -1,0 +1,36 @@
+"use strict";
+const $ = selector => document.querySelector(selector);
+
+document.addEventListener("DOMContentLoaded", () => {
+	// add event handlers
+	$("#calculate").addEventListener("click", processEntry);
+});
+
+function processEntry() {
+	const incomeInput = $("#income");
+	let income = parseFloat(incomeInput.value);
+
+	if (isNaN(income) || income <= 0) {
+		alert("Please enter a valud taxable income greater than zero.");
+		incomeInput.value = "";
+		incomeInput.focus();
+	} else {
+		const taxAmount = calculateTax(income);
+		$("#tax").value = taxAmount.toFixed(2);
+		incomeInput.focus();
+	}
+}
+
+function calculateTax(income) {
+	let tax = 0;
+
+	if (income <= 9875) {
+		tax = 0 + 0.10 * (income - 0);
+	} else if (income <= 40125) {
+		tax = 987.50 + 0.12 * (income - 9875);
+	} else if (income <= 85525) {
+		tax = 4617.50 + 0.22 * (income - 40125);
+	}
+
+	return tax;
+}
