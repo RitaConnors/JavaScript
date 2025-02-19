@@ -5,7 +5,7 @@ const $ = selector => document.querySelector(selector);
 document.addEventListener("DOMContentLoaded", () => {
     $("#subtotal").focus();
     $("#calculate").addEventListener("click", processEntries);
-    $("#clear").addEventListener("click", clearEntries);
+    $("#clear").addEventListener("click", clearFields);
     $("#subtotal").addEventListener("click", clearSubtotal);
     $("#tax_rate").addEventListener("click", clearTaxRate);
 });
@@ -57,6 +57,3 @@ function clearSubtotal() {
 function clearTaxRate() {
     document.getElementById('tax_rate').value = '';
 }
-
-document.getElementById('price').addEventListener('click', clearSubtotal);
-document.getElementById('tax_rate').addEventListener('click', clearTaxRate);
