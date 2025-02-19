@@ -1,0 +1,33 @@
+const $ = selector => document.querySelector(selector);
+
+function processEntry() {
+    const cents = parseInt($('#cents').value);
+
+    if (isNaN(cents) || cents < 0 || cents > 99) {
+        alert('Please enter a number between 0 and 99.');
+    } else {
+        makeChange(cents);
+    }
+}
+
+function makeChange(cents) {
+    let quarters = Math.floor(cents / 25);
+    cents = cents % 25;
+
+    let dimes = Math.floor(cents / 10);
+    cents = cents % 10;
+
+    let nickels = Math.floor(cents / 5);
+    cents = cents % 5;
+
+    let pennies = cents;
+
+    $('#quarters').value = quarters;
+    $('#dimes').value = dimes;
+    $('#nickels').value = nickels;
+    $('#pennies').value = pennies;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    $('#calculate').addEventListener('click', processEntry);
+});
