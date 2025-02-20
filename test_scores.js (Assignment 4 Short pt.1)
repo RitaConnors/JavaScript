@@ -1,0 +1,31 @@
+"use strict";
+
+const scores = [];
+
+const $ = selector => document.querySelector(selector);
+
+const addScore = () => {
+    const score = parseInt($("#score").value);
+    if (score >= 0 && score <= 100) {
+        scores.push(score);
+        $("#score").value = "";
+        $("#average").value = calculateAverage();
+    }
+    else {
+        alert("Score must be a valid number from 0 through 100");
+    }
+    $("#score").focus();
+};
+
+const calculateAverage = () => {
+    let total = 0;
+    for (let val of scores) {
+        total += val;
+    }
+    return scores.length > 0 ? Math.round(total / scores.length) : 0;
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    $("#add").addEventListener("click", addScore);
+    $("#score").focus();
+});
