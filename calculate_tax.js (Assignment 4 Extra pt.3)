@@ -30,6 +30,14 @@ function calculateTax(income) {
 		tax = 987.50 + 0.12 * (income - 9875);
 	} else if (income <= 85525) {
 		tax = 4617.50 + 0.22 * (income - 40125);
+	} else if (income <= 163300) {
+		tax = 14605.50 + 0.24 * (income - 85525);
+	} else if (income <= 207350) {
+		tax = 33271.50 + 0.32 * (income - 163300);
+	} else if (income <= 518400) {
+		tax = 47367.50 + 0.35 * (income - 207350);
+	} else {
+		tax = 156235.00 + 0.37 * (income - 518400);
 	}
 
 	return tax;
