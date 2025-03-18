@@ -1,0 +1,11 @@
+const button = document.getElementById('clickButton');
+const textInput = document.getElementById('textInput');
+const eventInfoParagraph = document.getElementById('eventInfo');
+
+button.addEventListener('click', function() {
+    eventInfoParagraph.textContent = 'Button was clicked!';
+});
+
+textInput.addEventListener('input', function() {
+    eventInfoParagraph.textContent = `You typed: ${textInput.value}`;
+});
