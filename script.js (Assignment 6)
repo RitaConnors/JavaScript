@@ -1,0 +1,51 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const heading = document.createElement("h1");
+    heading.textContent = "Welcome to My Simple Webpage";
+    document.body.appendChild(heading);
+
+    const container = document.createElement("div");
+container.classList.add("container");
+document.body.appendChild(container);
+
+const aboutSection = document.createElement("div");
+aboutSection.classList.add("text-section");
+
+const aboutHeading = document.createElement("h2");
+aboutHeading.textContent = "About Me";
+
+const aboutText = document.createElement("p");
+aboutText.textContent = "Hello! My name is John Doe. I am a CNA student with a passion for creating beautiful and functional websites.";
+
+aboutSection.appendChild(aboutHeading);
+aboutSection.appendChild(aboutText);
+container.appendChild(aboutSection);
+
+const imageSection = document.createElement("div");
+imageSection.classList.add("image");
+
+const image = document.createElement("img");
+image.src = "https://via.placeholder.come/150";
+image.alt = "Placeholder Image";
+
+imageSection.appendChild(image);
+container.appendChild(imageSection);
+
+const interestsSection = document.createElement("div");
+interestsSection.classList.add("text-section");
+
+const interestsHeading = document.createElement("h2");
+interestsHeading.textContent = "My Interests";
+
+const interestsList = document.createElement("ul");
+const interests = ["Coding", "Reading", "Traveling"];
+
+interests.forEach(interest => {
+    const listItem = document.createElement("li");
+    listItem.textContent = interest;
+    interestsList.appendChild(listItem);
+});
+
+interestsSection.appendChild(interestsHeading);
+interestsSection.appendChild(interestsList);
+container.appendChild(interestsSection);
+});
