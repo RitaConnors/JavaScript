@@ -1,0 +1,27 @@
+!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulation Assignment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .image {
+      text-align: center;
+      margin-top: 20px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <script src="script.js"></script>
+</body>
+</html>
