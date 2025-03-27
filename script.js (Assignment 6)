@@ -24,7 +24,7 @@ const imageSection = document.createElement("div");
 imageSection.classList.add("image");
 
 const image = document.createElement("img");
-image.src = "https://via.placeholder.come/150";
+image.src = "https://via.placeholder.com/150";
 image.alt = "Placeholder Image";
 
 imageSection.appendChild(image);
